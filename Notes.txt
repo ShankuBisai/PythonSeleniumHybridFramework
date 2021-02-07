@@ -133,7 +133,13 @@ download the git and install it in the system
         5)before committing the code to the git we have to add the code to the staging environment
         before adding the file to the staging area we have to check the status of the code to check which are the files that are already committed which are yet to commit
         git status is the command
-        Now to add the files to the staging area we use the command git add
+        Now to add the files to the staging area we use the command git add -A
+        now to check the status we can again use the command git status  now all the files will be in green colour
+        now we can commit the code into the git repository
+        git commit -m "Committing the Framework"
+
+        6)Now we have to push the code to github
+        git push -u origin master
 
 
 
