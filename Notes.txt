@@ -1,0 +1,139 @@
+THis Framework is the Hybrid Framework that was teached by QA Automation techie
+
+Step 1:Create new project and install required Packages/Plugins
+    Selenium: Selenium Libraries
+    Pytest: PyTest unitTest Framework
+    ptest-xdist: Run Tests Parallel
+    Openpyxl: MS Excel Support
+    Allure-pytest: To generate allure reports
+
+
+
+Step 2:Create Folder Structure
+
+
+
+Step 3:Automation login Testcase
+    Create LoginPage object class under "pageObjects"
+    Create LoginTest under "testcases"
+    Create "conftest.py" under "testCases"
+
+
+Step 4:Capture Screenshot of Failures
+    Update Login Test with Screenshot under "TestCases"
+
+
+Step 5:Read Common values from ini file
+    Add config.ini in Configurations folder
+    Create readProperties.py utility file under utilities package to read common.
+    Replace hardcoded values in login test case
+
+
+Step 6:Adding logs to testcases
+    Add customLogger.py under utilities package
+    Add logs to Login testcase.
+
+
+Step 7:Run Tests on Desired Browser/Cross Browser Parallel
+    update conftest.py with required fictures whuch will accept command line arguments(browser)
+    Pass browser name as argument in command line
+
+    To run test on desired browser
+    pytest -s -v testCases/test_login.py --browser chrome
+    pytest -s -v testCases/test_login.py --browser firefox
+
+    To run tests parallel
+    pytest -s -v -n=3 testCases/test_login.py --browser chrome
+    pytest -s -v -n=3 testCases/test_login.py --browser firefox
+
+
+
+Step 8:Generate pytest HTML Reports
+    update conftest.py with pytest hooks
+    To generate HTML reports run below commands
+
+    pytest -s -v -n = 3 --html == Reports\report.html testCases/test_login.py --browser chrome
+
+
+
+Step 9:Automating Data Driven Testcases
+    Prepare testdata in Excel Sheet,place the excel file inside the TestData folder
+    create ExcelUtils.py utility class under utilities package
+    create logindatadriventest under testCases
+    Run the testcase
+
+
+
+Step 10:Adding new testcases
+    Add Customer
+    Search Customer by email
+    Search customer by name
+
+
+
+Step 11:Grouping Tests
+    Grouping markers(add marker to every test method)
+    @pytest.mark.sanity
+    @pytest.mark.regression
+
+    Run Commands:-pytest -s -v -m "sanity" --html=./Reports/report.html testCases/ --browser chrome
+    Run Commands:-pytest -s -v -m "sanity and regression" --html=./Reports/report.html testCases/ --browser chrome
+
+    Add Marker entries in pytest.ini file
+    [pytest]
+    \markers=
+    sanity
+    regression
+
+
+
+Step 12:Run Tests in Command Prompt and run.bat file
+    Create run.bat file
+    Run Commands:-pytest -s -v -m "sanity and regression" --html=./Reports/report.html testCases/ --browser chrome
+    open command prompt as Administrator ans then run the bat.file
+
+
+Step 13:Push the code to GIT and Github Repository
+
+Git is a revision control system used to track changes in computer files.Its a tool to manage your code and file history while cordinating work remotely on those files with others
+Github is a hosting service for git repositories,GIT is a tool while Github is the service to use git
+
+download the git and install it in the system
+
+    Initial Step(only one time)
+        1)Move to the project directory
+        2)git init  -->Create an empty git repository(Local Repository)
+
+        Than login to the github and create a repository---->PythonSeleniumHybridFramework
+        The URL for the Repository is ---->https://github.com/ShankuBisai/PythonSeleniumHybridFramework.git
+
+        a)create a new repository on the command line
+        …or create a new repository on the command line
+        echo "# PythonSeleniumHybridFramework" >> README.md
+        git init
+        git add README.md
+        git commit -m "first commit"
+        git branch -M main
+        git remote add origin https://github.com/ShankuBisai/PythonSeleniumHybridFramework.git
+        git push -u origin main
+
+        b)push an existing repository from the command line
+        git remote add origin https://github.com/ShankuBisai/PythonSeleniumHybridFramework.git
+        git branch -M main
+        git push -u origin main
+
+        4)Now we have to connect the Local Repository to the Remote Repository
+        git remote add origin https://github.com/ShankuBisai/PythonSeleniumHybridFramework.git
+
+        before doing commit for the first time we need to execute these below commands
+        git config --global user.name "ShankuBisai"
+        git config --global user.email "shankubisai1111@gmail.com"
+
+
+        5)before committing the code to the git we have to add the code to the staging environment
+        before adding the file to the staging area we have to check the status of the code to check which are the files that are already committed which are yet to commit
+        git status is the command
+        Now to add the files to the staging area we use the command git add
+
+
+
